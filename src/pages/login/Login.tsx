@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import { useAuth } from "../../context/AuthContext";
 import { login } from "../../services/authService";
@@ -33,10 +33,6 @@ export const Login = () => {
           <input name="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} onKeyUp={(e) => (e.key === "Enter" ? handleLogin() : null)} placeholder="Password" className="w-full my-3 px-2 py-2 block bg-white border shadow-sm border-teal-500 placehoder-slate-400 focus:border-teal-500 focus:ring-offset-1 focus:rign-offset-slate-100 focus:ring-4 focus:ring-slate-200 rounded-md sm:text-sm" />
           
           <button className="bg-teal-500 hover:bg-teal-700 px-5 py-2 text-sm leading-5 rounded-md font-semibold text-white w-full" onClick={handleLogin}>Log in</button>
-
-          <div className="w-full mt-8 px-1">
-            <p>Forgot password? <Link to="/" className="underline">Contact us.</Link></p>
-          </div>
         </div>
       </div>
       <Toaster />
