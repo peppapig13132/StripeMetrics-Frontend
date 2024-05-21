@@ -3,6 +3,7 @@ import "./App.css";
 import { AuthProvider } from "./context/AuthContext";
 import { Signup } from "./pages/signup/Signup";
 import { Login } from "./pages/login/Login";
+import { Dashboard } from "./pages/dashboard/Dashboard";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Routes>
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </Router>
     </AuthProvider>
