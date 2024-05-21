@@ -11,11 +11,13 @@
     "@types/react": "^18.3.2",
     "@types/react-dom": "^18.3.0",
     "axios": "^1.7.1",
+    "dayjs": "^1.11.11",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-hot-toast": "^2.4.1",
     "react-router-dom": "^6.23.1",
     "react-scripts": "5.0.1",
+    "react-tailwindcss-datepicker": "^1.6.6",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },

@@ -1,3 +1,5 @@
+import {useState} from "react"; 
+import Datepicker from "react-tailwindcss-datepicker";
 import { MontlyRecurringRevenue } from "../../components/monthly-recurring-revenue/MontlyRecurringRevenue";
 import { MrrMovements } from "../../components/mrr-movements/MrrMovements";
 import { LastSubscribers } from "../../components/last-subscribers/LastSubscribers";
@@ -9,11 +11,27 @@ import { FreeTrials } from "../../components/free-trials/FreeTrials";
 import { AnnualRunRate } from "../../components/annual-run-rate/AnnualRunRate";
 
 export const Dashboard = () => {
+  const [value, setValue] = useState({ 
+    startDate: null, 
+    endDate: null,
+  });
+    
+  const handleValueChange = (newValue: any) => {
+    console.log("newValue:", newValue); 
+    setValue(newValue); 
+  }
+
   return(
     <div className="bg-slate-200">
       <div className="dashboard container mx-auto w-full min-h-screen p-8">
-        <div className="dashboard__header p-2">
-          <h2 className="font-bold text-2xl lg:text-3xl text-sky-600">Dashboard</h2>
+        <div className="dashboard__header p-2 flex flex-col lg:flex-row">
+          <h2 className="font-bold text-3xl text-sky-600">Dashboard</h2>
+          <div className="w-full lg:max-w-[275px] mt-3 lg:mt-0 ms-auto">
+            <Datepicker
+              value={value} 
+              onChange={handleValueChange} 
+            />
+          </div>
         </div>
 
         <div className="dashboard__body flex flex-col">
