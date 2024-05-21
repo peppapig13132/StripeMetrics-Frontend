@@ -1,15 +1,19 @@
-import "./App.css";
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import './App.css';
+import { AuthProvider } from './context/AuthContext';
+import { Signup } from './pages/signup/Signup';
+import { Login } from './pages/login/Login';
 
 function App() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen">
-      <h2 className="text-4xl my-3 text-slate-700">
-        Hello React.js!
-      </h2>
-      <p className="my-3 text-slate-700">
-        React.js boilerplate pre-configured with TypeScript and Tailwind CSS
-      </p>
-    </div>
+    <AuthProvider>
+      <Router>
+        <Routes>
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </Router>
+    </AuthProvider>
   );
 }
 
