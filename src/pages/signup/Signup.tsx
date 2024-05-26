@@ -10,7 +10,7 @@ export const Signup = () => {
   const [passcheck, setPasscheck] = useState<string>('');
 
   const handleSignup = async () => {
-    if(password != passcheck) {
+    if(password !== passcheck) {
       toast("Password doesn't match!", {
         icon: '👀',
       });
