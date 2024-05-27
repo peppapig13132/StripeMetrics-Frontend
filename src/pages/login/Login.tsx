@@ -16,7 +16,7 @@ export const Login = () => {
     if(response.ok) {
       toast.success('Welcome back!');
       appLogin(response.user, response.token);
-      setTimeout(()=>{navigate("/")}, 1500);
+      setTimeout(()=>{navigate("/dashboard")}, 1500);
     } else {
       toast.error('Invalid password!');
     }

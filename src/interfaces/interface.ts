@@ -17,3 +17,10 @@ export interface AuthContextProps {
 export interface AuthProviderProps {
   children: ReactNode;
 }
+
+export interface DailySum {
+  id: number;
+  sum: number;
+  createdAt: string;
+  updatedAt: string;
+}
