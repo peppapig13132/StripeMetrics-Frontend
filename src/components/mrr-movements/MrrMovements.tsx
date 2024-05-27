@@ -19,7 +19,6 @@ export const MrrMovements = () => {
           const x_data = mrr_movements_data.map((item: DailySum) => new Date(item.createdAt));
           const y_data = mrr_movements_data.map((item: DailySum) => item.sum);
 
-          console.log(mrr_movements_data);
           setXData(x_data);
           setYData(y_data);
         } else {
