@@ -41,7 +41,10 @@ export const MrrMovements = () => {
 
   return (
     <div className="bg-white w-full rounded-xl p-5">
-      MRR Movements
+      <div className="flex flex-row">
+        <h4 className="font-bold text-sky-600">MRR Movements</h4>
+      </div>
+
       <SmoothedLine xData={xData} yData={yData} />
     </div>
   );
