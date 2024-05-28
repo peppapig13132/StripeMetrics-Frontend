@@ -51,7 +51,7 @@ export const LastSubscribers = () => {
         <span className="text-sky-600 ms-auto">Last 30 days</span>
       </div>
 
-      <SubscriberCountChart last30Days={5} lastMonth={3} />
+      <SubscriberCountChart last30Days={last30Days} lastMonth={lastMonth} />
     </div>
   );
 }
