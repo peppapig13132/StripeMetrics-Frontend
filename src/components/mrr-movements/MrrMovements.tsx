@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import SmoothedLine from "./MrrMovementsChart";
-import { getMrrMovementsData } from "../../services/mrrMovements";
+import { getMrrMovementsData } from "../../services/mrrMovementsService";
 import { DailySum } from "../../interfaces/interface";
 import { setAuthToken } from "../../utils/setAuthToken";
 import { useAuth } from "../../context/AuthContext";

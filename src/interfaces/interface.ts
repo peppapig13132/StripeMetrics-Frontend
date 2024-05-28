@@ -24,3 +24,8 @@ export interface DailySum {
   createdAt: string;
   updatedAt: string;
 }
+
+export interface ChartData {
+  xData: string[];
+  yData: number[];
+}
