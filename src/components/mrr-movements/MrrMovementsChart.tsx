@@ -1,17 +1,12 @@
 import ReactECharts from 'echarts-for-react';
-import { format } from "date-fns";
+import { formatDateString } from '../../utils/utils';
 
 interface ChartData {
   xData: string[];
   yData: number[];
 }
 
-export const formatDateString = (dateString: string): string => {
-  const date = new Date(dateString);
-  return format(date, 'MMM dd, yyyy');
-}
 const MrrMovementsChart = (data: ChartData) => {
-
   const _tooltipFormatter = (params: any) => {
     const date = formatDateString(params[0].name);
     const sum = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(params[0].value);
@@ -52,7 +47,7 @@ const MrrMovementsChart = (data: ChartData) => {
 		}
   };
 
-  return <ReactECharts option={option} style={{ height: '300px', width: '100%' }} />;
+  return <ReactECharts option={option} style={{ height: '250px', width: '100%' }} />;
 };
 
 export default MrrMovementsChart;

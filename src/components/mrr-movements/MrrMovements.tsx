@@ -2,14 +2,20 @@ import { useEffect, useState } from "react";
 import SmoothedLine from "./MrrMovementsChart";
 import { getMrrMovementsData } from "../../services/mrrMovements";
 import { DailySum } from "../../interfaces/interface";
+import { setAuthToken } from "../../utils/setAuthToken";
+import { useAuth } from "../../context/AuthContext";
 
 export const MrrMovements = () => {
   const [xData, setXData] = useState([]);
   const [yData, setYData] = useState([]);
 
+  const { token } = useAuth();
+
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setAuthToken(token);
+
         const response = await getMrrMovementsData();
 
         if(response.ok) {
