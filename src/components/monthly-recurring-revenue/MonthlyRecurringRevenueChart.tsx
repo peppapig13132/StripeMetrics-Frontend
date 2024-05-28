@@ -47,6 +47,7 @@ const MonthlyRecurringRevenueChart = (data: ChartData) => {
           borderRadius: 50,
         },
         itemStyle: {
+          color: '#2f88d0',
           borderRadius: 50,
         }
       }
@@ -54,12 +55,12 @@ const MonthlyRecurringRevenueChart = (data: ChartData) => {
     grid: {
 			right: '10px',
 			left: '10px',
-			bottom: '25px',
+			bottom: '15px',
 			top: '25px',
 		}
   };
 
-  return <ReactECharts option={option} style={{ height: '200px', width: '100%' }} />;
+  return <ReactECharts option={option} style={{ height: '220px', width: '100%' }} />;
 };
 
 export default MonthlyRecurringRevenueChart;

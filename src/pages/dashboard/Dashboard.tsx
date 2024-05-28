@@ -22,7 +22,7 @@ export const Dashboard = () => {
   }
 
   return(
-    <div className="bg-slate-200">
+    <div className="bg-slate-200 w-full">
       <div className="dashboard container mx-auto w-full min-h-screen p-8">
         <div className="dashboard__header p-2 flex flex-col lg:flex-row">
           <h2 className="font-bold text-3xl text-sky-600">Dashboard</h2>

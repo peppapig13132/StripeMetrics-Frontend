@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import MonthlyRecurringRevenueChart from "./MonthlyRecurringRevenueChart";
-import { getMrrData } from "../../services/mrrService";
+import { getMrrData } from "../../services/dashboardApiService";
 import { DailySum } from "../../interfaces/interface";
 import { setAuthToken } from "../../utils/setAuthToken";
 import { useAuth } from "../../context/AuthContext";
@@ -17,9 +17,9 @@ export const MontlyRecurringRevenue = () => {
   
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        setAuthToken(token);
+      setAuthToken(token);
 
+      try {
         const response = await getMrrData();
 
         if(response.ok) {
@@ -33,8 +33,9 @@ export const MontlyRecurringRevenue = () => {
           setYData(y_data);
           setMrr30Days(response.mrr_last_30days);
           setMrrLastMonth(response.mrr_last_month);
+
           if(mrrLastMonth !== 0) {
-            setRate(Math.floor((mrr30Days - mrrLastMonth) / mrrLastMonth) / 100);
+            setRate(Math.floor((mrr30Days - mrrLastMonth) / mrrLastMonth) * 100);
           } else {
             setRate(100);
           }
@@ -62,7 +63,7 @@ export const MontlyRecurringRevenue = () => {
         <span className="font-bold text-red-500 ms-auto">{rate}%</span>
       </div>
 
-      <div className="flex flex-row h-50 pt-4">
+      <div className="flex flex-row h-[30px] pt-3">
         <span className="font-bold text-sky-600">{formattedMrr30Days}</span>
         <span className="text-sky-600 ms-auto">Last 30 days</span>
       </div>

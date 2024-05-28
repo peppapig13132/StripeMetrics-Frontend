@@ -37,6 +37,7 @@ const MrrMovementsChart = (data: ChartData) => {
         data: yData,
         type: 'line',
         smooth: true,
+        color: '#2f88d0'
       }
     ],
     grid: {
