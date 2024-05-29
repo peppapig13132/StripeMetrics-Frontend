@@ -11,7 +11,7 @@ export const signup = async (email: string, password: string) => {
     const url = API_URL + "/auth/signup";
     const options = {
       method: "POST",
-      headers: { "content-type": "application/json" },
+      headers: { "Content-Type": "application/json" },
       data: data,
       url,
     }
@@ -33,7 +33,7 @@ export const login = async (email: string, password: string) => {
     const url = API_URL + "/auth/login";
     const options = {
       method: "POST",
-      headers: { "content-type": "application/json" },
+      headers: { "Content-Type": "application/json" },
       data: data,
       url,
     }
