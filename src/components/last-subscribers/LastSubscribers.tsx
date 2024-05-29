@@ -39,7 +39,7 @@ export const LastSubscribers = () => {
     }
 
     fetchData();
-  }, []);
+  }, [token]);
 
   return (
     <div className="bg-white w-full rounded-xl p-5">

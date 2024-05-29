@@ -31,7 +31,7 @@ export const AverageStaying = () => {
     };
 
     fetchData();
-  }, []);
+  }, [token, averageStayingLast30Days, averageStayingLastMonth]);
 
   return (
     <div className="bg-white w-full rounded-xl p-5">
