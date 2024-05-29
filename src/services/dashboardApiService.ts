@@ -78,3 +78,22 @@ export const getAverageStaying = async () => {
     console.error('Error fetching Average Staying data:', error);
   }
 }
+
+export const getFreeToPaidSubscriptions = async () => {
+  try {
+    const data = {};
+    const url = DASHBOARD_API_URL_PREFIX + '/free-to-paid-subscriptions';
+    const options = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      data: data,
+      url,
+    }
+
+    const response = await axios(options);
+
+    return response.data;
+  } catch(error) {
+    console.error('Error fetching Free To Paid Subscriptions data:', error);
+  }
+}
