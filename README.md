@@ -6,7 +6,7 @@
 - [x] Subscribers
 - [x] MRR Movements
 - [x] Average Staying
-- [ ] Customer Lifetime Value
+- [x] Customer Lifetime Value
 - [x] Customer Churn Rate
 - [x] Free to paid subscriptions
 - [x] Free trials

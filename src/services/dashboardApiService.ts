@@ -79,6 +79,25 @@ export const getAverageStaying = async () => {
   }
 }
 
+export const getCustomerLifetimeValue = async () => {
+  try {
+    const data = {};
+    const url = DASHBOARD_API_URL_PREFIX + '/customer-lifetime-value';
+    const options = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      data: data,
+      url,
+    }
+
+    const response = await axios(options);
+
+    return response.data;
+  } catch(error) {
+    console.error('Error fetching Free To Paid Subscriptions data:', error);
+  }
+}
+
 export const getCustomerChurnRate = async () => {
   try {
     const data = {};
