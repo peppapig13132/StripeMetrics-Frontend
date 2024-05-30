@@ -28,7 +28,7 @@ export const Signup: React.FC = () => {
 
   return(
     <>
-      <div className="flex flex-col items-center justify-center px-4 py-24">
+      <div className="flex flex-col items-center justify-center px-4 py-40">
         <h2 className="text-center text-gray-900 text-3xl md:text-4xl">Welcome!</h2>
 
         <div className="py-8 w-[280px]">
