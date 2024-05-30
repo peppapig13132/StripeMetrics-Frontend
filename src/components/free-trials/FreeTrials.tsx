@@ -20,8 +20,10 @@ export const FreeTrials = () => {
         
         if(response.count_free_trials_last_month !== 0) {
           setRate(Math.round((response.count_free_trials_last_30_days - response.count_free_trials_last_month) / response.count_free_trials_last_month) * 100);
-        } else {
+        } else if(response.count_free_trials_last_30_days !== 0) {
           setRate(100);
+        } else {
+          setRate(0);
         }
       }
     };
