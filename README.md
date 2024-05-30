@@ -9,7 +9,7 @@
 - [ ] Customer Lifetime Value
 - [ ] Customer Churn Rate
 - [x] Free to paid subscriptions
-- [ ] Free trials
+- [x] Free trials
 - [ ] Annual Run Rate
 
 

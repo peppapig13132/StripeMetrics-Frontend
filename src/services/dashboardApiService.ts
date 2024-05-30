@@ -97,3 +97,22 @@ export const getFreeToPaidSubscriptions = async () => {
     console.error('Error fetching Free To Paid Subscriptions data:', error);
   }
 }
+
+export const getFreeTrials = async () => {
+  try {
+    const data = {};
+    const url = DASHBOARD_API_URL_PREFIX + '/free-trials';
+    const options = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      data: data,
+      url,
+    }
+
+    const response = await axios(options);
+
+    return response.data;
+  } catch(error) {
+    console.error('Error fetching Free Trials data:', error);
+  }
+}
