@@ -35,7 +35,7 @@ export const MontlyRecurringRevenue = () => {
           setMrrLastMonth(response.mrr_last_month);
 
           if(mrrLastMonth !== 0) {
-            setRate(Math.round((mrr30Days - mrrLastMonth) / mrrLastMonth) * 100);
+            setRate(Math.round((mrr30Days - mrrLastMonth) / mrrLastMonth * 10000) / 100);
           } else {
             setRate(100);
           }

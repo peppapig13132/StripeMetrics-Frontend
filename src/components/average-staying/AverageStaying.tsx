@@ -23,7 +23,7 @@ export const AverageStaying = () => {
         setFormattedAverageStayingLast30Days(new Intl.NumberFormat('en-US', { style: 'decimal' }).format(response.average_staying_last_30_days));
         
         if(response.average_staying_last_month !== 0) {
-          setRate(Math.round((averageStayingLast30Days - averageStayingLastMonth) / averageStayingLastMonth) * 100);
+          setRate(Math.round((averageStayingLast30Days - averageStayingLastMonth) / averageStayingLastMonth * 10000) / 100);
         } else {
           setRate(100);
         }

@@ -23,7 +23,7 @@ export const LastSubscribers = () => {
           setLastMonth(response.count_last_month);
 
           if(response.count_last_month !== 0) {
-            setRate(Math.round((response.count_last_30days - response.count_last_month) / response.count_last_month) * 100);
+            setRate(Math.round((response.count_last_30days - response.count_last_month) / response.count_last_month * 10000) / 100);
           } else {
             setRate(100);
           }
