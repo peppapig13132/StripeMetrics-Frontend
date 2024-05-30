@@ -1,4 +1,4 @@
-# STRIPE DASHBOARD (FE)
+# STRIPE DASHBOARD (Frontend)
 
 ## Dashboard Widgets
 
