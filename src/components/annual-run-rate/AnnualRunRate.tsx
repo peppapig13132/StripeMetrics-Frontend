@@ -44,7 +44,7 @@ export const AnnualRunRate = () => {
     }
 
     fetchData();
-  }, [token]);
+  }, [token, mrr30Days, mrrLastMonth]);
 
   return (
     <div className="bg-white w-full rounded-xl p-5">

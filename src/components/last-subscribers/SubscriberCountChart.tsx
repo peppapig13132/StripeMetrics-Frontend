@@ -6,7 +6,6 @@ interface SubscriptionCountChartData {
 }
 
 const SubscriberCountChart = (data: SubscriptionCountChartData) => {
-  console.log(data)
   const option = {
     tooltip: {
       trigger: 'item'

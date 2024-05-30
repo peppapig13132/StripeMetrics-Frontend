@@ -1,16 +1,17 @@
-import {useState} from "react"; 
-import Datepicker from "react-tailwindcss-datepicker";
-import { MontlyRecurringRevenue } from "../../components/monthly-recurring-revenue/MontlyRecurringRevenue";
-import { MrrMovements } from "../../components/mrr-movements/MrrMovements";
-import { LastSubscribers } from "../../components/last-subscribers/LastSubscribers";
-import { AverageStaying } from "../../components/average-staying/AverageStaying";
-import { CustomerLifetimeValue } from "../../components/customer-lifetime-value/CustomerLifetimeValue";
-import { CustomerChurnRate } from "../../components/customer-churn-rate/CustomerChurnRate";
-import { FreeToPaidSubscriptions } from "../../components/free-to-paid-subscriptions/FreeToPaidSubscriptions";
-import { FreeTrials } from "../../components/free-trials/FreeTrials";
-import { AnnualRunRate } from "../../components/annual-run-rate/AnnualRunRate";
+import React from 'react';
+import {useState} from 'react'; 
+import Datepicker from 'react-tailwindcss-datepicker';
+import { MontlyRecurringRevenue } from '../../components/monthly-recurring-revenue/MontlyRecurringRevenue';
+import { MrrMovements } from '../../components/mrr-movements/MrrMovements';
+import { LastSubscribers } from '../../components/last-subscribers/LastSubscribers';
+import { AverageStaying } from '../../components/average-staying/AverageStaying';
+import { CustomerLifetimeValue } from '../../components/customer-lifetime-value/CustomerLifetimeValue';
+import { CustomerChurnRate } from '../../components/customer-churn-rate/CustomerChurnRate';
+import { FreeToPaidSubscriptions } from '../../components/free-to-paid-subscriptions/FreeToPaidSubscriptions';
+import { FreeTrials } from '../../components/free-trials/FreeTrials';
+import { AnnualRunRate } from '../../components/annual-run-rate/AnnualRunRate';
 
-export const Dashboard = () => {
+export const Dashboard: React.FC = () => {
   const [value, setValue] = useState({ 
     startDate: null, 
     endDate: null,
