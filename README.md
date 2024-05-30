@@ -10,7 +10,7 @@
 - [x] Customer Churn Rate
 - [x] Free to paid subscriptions
 - [x] Free trials
-- [ ] Annual Run Rate
+- [x] Annual Run Rate
 
 
 ## Environment
