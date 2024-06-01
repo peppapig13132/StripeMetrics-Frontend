@@ -20,7 +20,7 @@
 - Node.js v20.12.2 LTS
 - npm v10.6.0
 - Git
-- [Backend](https://github.com/peppapig13132/Stripe-Dashboard-Backend) already set up
+- [Backend](https://github.com/peppapig13132/Stripe-Dashboard-Backend)
 
 ### Steps
 
