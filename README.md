@@ -33,7 +33,7 @@
 
 2. Install Dependencies
     
-    Install the necessary dependencies for both the React 
+    Install the necessary dependencies for the Frontend - React project. 
     ```
     npm install
     ```
