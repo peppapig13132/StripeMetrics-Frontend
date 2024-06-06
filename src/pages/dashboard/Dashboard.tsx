@@ -11,6 +11,7 @@ import { FreeToPaidSubscriptions } from '../../components/free-to-paid-subscript
 import { FreeTrials } from '../../components/free-trials/FreeTrials';
 import { AnnualRunRate } from '../../components/annual-run-rate/AnnualRunRate';
 import { useAuth } from '../../context/AuthContext';
+import { Link } from 'react-router-dom';
 
 export const Dashboard: React.FC = () => {
   const [value, setValue] = useState({ 
@@ -29,14 +30,19 @@ export const Dashboard: React.FC = () => {
     <div className="bg-slate-200 w-full">
       <div className="dashboard container mx-auto w-full min-h-screen p-8">
         <div className="dashboard__header p-2 flex flex-col lg:flex-row">
-          <h2 className="font-bold text-3xl text-sky-600">Dashboard</h2>
+          <div className="flex items-end">
+            <h2 className="font-bold text-3xl text-sky-600">Dashboard</h2>
+            <Link to="/stripe-old-data">
+              <button className='ms-2 px-[5px] py-[1px] text-xs rounded-md text-slate-200 bg-red-600 border border-red-600 hover:text-slate-700 hover:bg-red-300 hover:border-red-400'>Get old data</button>
+            </Link>
+          </div>
           <div className="w-full lg:max-w-[300px] mt-3 lg:mt-0 ms-auto flex flex-row items-center justify-center align-center">
             <Datepicker
               value={value} 
               onChange={handleValueChange} 
             />
 
-            <button onClick={appLogout} className='bg-slate-300 hover:bg-sky-600 ms-3 px-2 py-2 text-sm leading-5 rounded-md font-semibold text-sky-600 hover:text-white border border-slate-300 hover:border-slate-300'>
+            <button onClick={appLogout} className="bg-slate-300 hover:bg-sky-600 ms-3 px-2 py-2 text-sm leading-5 rounded-md font-semibold text-sky-600 hover:text-white border border-slate-300 hover:border-slate-300">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9" />
               </svg>

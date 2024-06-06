@@ -8,6 +8,7 @@ import { Login } from "./pages/login/Login";
 import { Dashboard } from "./pages/dashboard/Dashboard";
 import { CustomPage } from "./components/custom-page/CustomPage";
 import { ProtectedComponent } from "./components/protected-component/ProtectedComponent";
+import { StripeOldData } from "./pages/stripe-old-data/StripeOldData";
 
 const App: React.FC = () => {  
   return (
@@ -20,6 +21,11 @@ const App: React.FC = () => {
           <Route path="/dashboard" element={
             <ProtectedComponent>
               <Dashboard />
+            </ProtectedComponent>}
+          />
+          <Route path="/stripe-old-data" element={
+            <ProtectedComponent>
+              <StripeOldData />
             </ProtectedComponent>}
           />
           <Route path="/404" element={<CustomPage title="404" description="Page not found" time={3000} redirectPath="/" redirectPageTitle="Home" />} />
