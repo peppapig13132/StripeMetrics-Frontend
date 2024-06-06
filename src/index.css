@@ -2,12 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: "Space Grotesk";
-  font-style: normal;
-  src: url("/font/SpaceGrotesk/SpaceGrotesk-Regular.ttf") format("truetype");
-}
-
 body {
   margin: 0;
   font-family: "Space Grotesk";
