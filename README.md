@@ -17,9 +17,10 @@
 
 ### Prerequisites
 
-- Node.js(v20.12.2) and npm(v10.6.0) installed
-- Git installed
-- [Backend](https://github.com/peppapig13132/Stripe-Dashboard-Backend) already set up
+- Node.js v20.12.2 LTS
+- npm v10.6.0
+- Git
+- [Backend](https://github.com/peppapig13132/Stripe-Dashboard-Backend)
 
 ### Steps
 
@@ -32,7 +33,7 @@
 
 2. Install Dependencies
     
-    Install the necessary dependencies for both the React 
+    Install the necessary dependencies for the Frontend - React project. 
     ```
     npm install
     ```
