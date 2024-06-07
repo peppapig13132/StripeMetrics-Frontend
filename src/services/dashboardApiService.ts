@@ -152,9 +152,12 @@ export const getFreeToPaidSubscriptions = async (dateRange: DateRange) => {
   }
 }
 
-export const getFreeTrials = async () => {
+export const getFreeTrials = async (dateRange: DateRange) => {
   try {
-    const data = {};
+    const data = {
+      start_date: dateRange.startDate,
+      end_date: dateRange.endDate,
+    };
     const url = DASHBOARD_API_URL_PREFIX + '/free-trials';
     const options = {
       method: 'POST',
