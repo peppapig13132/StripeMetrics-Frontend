@@ -5,7 +5,6 @@ import { DailySum } from "../../interfaces/interface";
 import { setAuthToken } from "../../utils/setAuthToken";
 import { useAuth } from "../../context/AuthContext";
 import { useDashboard } from "../../context/DashboardContext";
-import moment from "moment";
 
 export const MontlyRecurringRevenue = () => {
   const [mrr, setMrr] = useState(0);

@@ -24,7 +24,7 @@ export const AverageStaying = () => {
     };
 
     fetchData();
-  }, [token, averageStaying]);
+  }, [token, averageStaying, dateRange]);
 
   return (
     <div className="bg-white w-full rounded-xl p-5">
