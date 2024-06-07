@@ -46,7 +46,7 @@ export const Dashboard: React.FC = () => {
               <button className='ms-2 px-[5px] py-[1px] text-xs rounded-md text-slate-200 bg-red-600 border border-red-600 hover:text-slate-700 hover:bg-red-300 hover:border-red-400'>Get old data</button>
             </Link>
           </div>
-          <div className="w-full lg:max-w-[300px] mt-3 lg:mt-0 ms-auto flex flex-row items-center justify-center align-center">
+          <div className="w-full lg:max-w-[320px] mt-3 lg:mt-0 ms-auto flex flex-row items-center justify-center align-center">
             <Datepicker
               value={value} 
               onChange={handleValueChange} 

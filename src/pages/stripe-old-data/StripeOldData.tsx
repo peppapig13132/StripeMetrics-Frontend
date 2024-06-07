@@ -34,14 +34,23 @@ export const StripeOldData: React.FC = () => {
   const months = monthsRef.current;
   const [availableMonths, setAvailableMonths] = useState<string[]>(months);
   const [stripeOldDataStatus, setStripeOldDataStatus] = useState<StripeOldDataRow[] | []>([]);
-  const [month, setMonth] = useState('');
+  const [month, setMonth] = useState('--');
 
   const handleAvailableMonthChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setMonth(event.target.value);
   };
 
   const handleClick = async () => {
-    toast.success('Connecting to Stripe, wait a minute.');
+    if(month === '--') {
+      toast("Select a month!", {
+        icon: '📅',
+      });
+      return;
+    }
+
+    toast('Connecting to Stripe, wait a minute.', {
+      icon: '⏳',
+    });
 
     try {
       const response = await createStripeOldData(month + '-01');
