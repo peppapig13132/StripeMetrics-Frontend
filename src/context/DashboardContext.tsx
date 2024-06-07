@@ -4,6 +4,7 @@ import moment from 'moment';
 
 interface DashboardContextProps {
   dateRange: DateRange;
+  days: number;
   updateDateRange: (dateRange: DateRange) => void;
 }
 
@@ -16,8 +17,11 @@ export const defaultDateRange: DateRange = {
   endDate: moment().startOf('date').format('YYYY-MM-DD')
 }
 
+const defaultDays: number = moment(defaultDateRange.endDate).diff(moment(defaultDateRange.startDate), 'days')
+
 const defaultDashboardContextProps: DashboardContextProps = {
   dateRange: defaultDateRange,
+  days: moment(defaultDateRange.endDate).diff(moment(defaultDateRange.startDate), 'days'),
   updateDateRange: () => {}
 };
 
@@ -25,13 +29,15 @@ const DashboardContext = createContext<DashboardContextProps>(defaultDashboardCo
 
 export const DashboardProvider: React.FC<DashboardProviderProps> = ({ children }) => {
   const [dateRange, setDateRange] = useState<DateRange>(defaultDateRange);
+  const [days, setDays] = useState(defaultDays);
 
   const updateDateRange = (dateRange: DateRange) => {
     setDateRange(dateRange);
+    setDays(moment(dateRange.endDate).diff(moment(dateRange.startDate), 'days'));
   }
 
   return (
-    <DashboardContext.Provider value={{ dateRange, updateDateRange}}>
+    <DashboardContext.Provider value={{ dateRange, days, updateDateRange}}>
       {children}
     </DashboardContext.Provider>
   );

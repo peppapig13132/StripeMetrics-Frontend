@@ -12,10 +12,9 @@ export const MontlyRecurringRevenue = () => {
   const [formattedMrr, setFormattedMrr] = useState('$0');
   const [xData, setXData] = useState([]);
   const [yData, setYData] = useState([]);
-  const [days, setDays] = useState(0);
 
   const { token } = useAuth();
-  const { dateRange } = useDashboard();
+  const { dateRange, days } = useDashboard();
   
   useEffect(() => {
     const fetchData = async () => {
@@ -35,12 +34,10 @@ export const MontlyRecurringRevenue = () => {
           setYData(y_data);
           setMrr(response.mrr);
           setFormattedMrr(new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }).format(mrr));
-          setDays(moment(dateRange.endDate).diff(moment(dateRange.startDate), 'days'));
         } else {
           setXData([]);
           setYData([]);
           setMrr(0);
-          setDays(0);
         }
 
       } catch(error) {

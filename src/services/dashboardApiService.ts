@@ -67,9 +67,12 @@ export const getMrrMovementsData = async (dateRange: DateRange) => {
   }
 }
 
-export const getAverageStaying = async () => {
+export const getAverageStaying = async (dateRange: DateRange) => {
   try {
-    const data = {};
+    const data = {
+      start_date: dateRange.startDate,
+      end_date: dateRange.endDate,
+    };
     const url = DASHBOARD_API_URL_PREFIX + '/average-staying';
     const options = {
       method: 'POST',
