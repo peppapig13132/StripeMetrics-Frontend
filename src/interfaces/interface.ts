@@ -1,6 +1,7 @@
 export interface DailySum {
   id: number;
   sum: number;
+  date: string;
   createdAt: string;
   updatedAt: string;
 }

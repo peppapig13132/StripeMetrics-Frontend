@@ -4,26 +4,28 @@ import { getMrrMovementsData } from "../../services/dashboardApiService";
 import { DailySum } from "../../interfaces/interface";
 import { setAuthToken } from "../../utils/setAuthToken";
 import { useAuth } from "../../context/AuthContext";
+import { useDashboard } from "../../context/DashboardContext";
 
 export const MrrMovements = () => {
   const [xData, setXData] = useState([]);
   const [yData, setYData] = useState([]);
 
   const { token } = useAuth();
+  const { dateRange } = useDashboard();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         setAuthToken(token);
 
-        const response = await getMrrMovementsData();
+        const response = await getMrrMovementsData(dateRange);
 
         if(response.ok) {
-          const mrr_movements_data = response.mrr_movements_data;
-          mrr_movements_data.sort((a: DailySum, b: DailySum) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime());
+          const mrr_array = response.mrr_array;
+          mrr_array.sort((a: DailySum, b: DailySum) => new Date(a.date).getTime() - new Date(b.date).getTime());
 
-          const x_data = mrr_movements_data.map((item: DailySum) => new Date(item.createdAt));
-          const y_data = mrr_movements_data.map((item: DailySum) => item.sum);
+          const x_data = mrr_array.map((item: DailySum) => new Date(item.date));
+          const y_data = mrr_array.map((item: DailySum) => item.sum);
 
           setXData(x_data);
           setYData(y_data);
@@ -37,7 +39,7 @@ export const MrrMovements = () => {
     };
 
     fetchData();
-  }, [token]);
+  }, [token, dateRange]);
 
   return (
     <div className="bg-white w-full rounded-xl p-5">
