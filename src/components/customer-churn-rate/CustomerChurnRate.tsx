@@ -22,7 +22,7 @@ export const CustomerChurnRate = () => {
     };
 
     fetchData();
-  }, [token]);
+  }, [token, dateRange]);
 
   return (
     <div className="bg-white w-full rounded-xl p-5">

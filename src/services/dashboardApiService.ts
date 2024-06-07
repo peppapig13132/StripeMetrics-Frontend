@@ -130,9 +130,12 @@ export const getCustomerChurnRate = async (dateRange: DateRange) => {
   }
 }
 
-export const getFreeToPaidSubscriptions = async () => {
+export const getFreeToPaidSubscriptions = async (dateRange: DateRange) => {
   try {
-    const data = {};
+    const data = {
+      start_date: dateRange.startDate,
+      end_date: dateRange.endDate,
+    };
     const url = DASHBOARD_API_URL_PREFIX + '/free-to-paid-subscriptions';
     const options = {
       method: 'POST',
