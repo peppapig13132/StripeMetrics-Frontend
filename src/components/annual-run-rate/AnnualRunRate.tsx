@@ -42,7 +42,7 @@ export const AnnualRunRate = () => {
 
       <div className="flex flex-row mt-8">
         <span className="font-bold text-sky-600">{formattedAnnualRunRate}</span>
-        <span className="text-sky-600 ms-auto">{moment(dateRange.endDate).format('DD, MMM YYYY')}</span>
+        <span className="text-sky-600 ms-auto text-sm">{moment(dateRange.endDate).format('DD, MMM YYYY')}</span>
       </div>
     </div>
   );

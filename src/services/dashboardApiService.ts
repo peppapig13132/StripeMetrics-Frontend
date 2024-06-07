@@ -89,9 +89,12 @@ export const getAverageStaying = async (dateRange: DateRange) => {
   }
 }
 
-export const getCustomerLifetimeValue = async () => {
+export const getCustomerLifetimeValue = async (dateRange: DateRange) => {
   try {
-    const data = {};
+    const data = {
+      start_date: dateRange.startDate,
+      end_date: dateRange.endDate,
+    };
     const url = DASHBOARD_API_URL_PREFIX + '/customer-lifetime-value';
     const options = {
       method: 'POST',
