@@ -1,11 +1,15 @@
 import axios from 'axios';
+import { DateRange } from '../interfaces/interface';
 
 const API_URL = process.env.REACT_APP_API_URL;
 const DASHBOARD_API_URL_PREFIX = API_URL + '/stripe';
 
-export const getMrrData = async () => {
+export const getMrrData = async (dateRange: DateRange) => {
   try {
-    const data = {};
+    const data = {
+      start_date: dateRange.startDate,
+      end_date: dateRange.endDate,
+    };
     const url = DASHBOARD_API_URL_PREFIX + '/monthly-recurring-revenue';
     const options = {
       method: 'POST',

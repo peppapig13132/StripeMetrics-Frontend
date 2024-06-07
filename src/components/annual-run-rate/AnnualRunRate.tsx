@@ -3,6 +3,7 @@ import { getMrrData } from "../../services/dashboardApiService";
 import { DailySum } from "../../interfaces/interface";
 import { setAuthToken } from "../../utils/setAuthToken";
 import { useAuth } from "../../context/AuthContext";
+import { useDashboard } from "../../context/DashboardContext";
 
 export const AnnualRunRate = () => {
   const [mrr30Days, setMrr30Days] = useState(0);
@@ -11,18 +12,19 @@ export const AnnualRunRate = () => {
   const [formattedAnnualRunRate30Days, setFormattedAnnualRunRate30Days] = useState('$0');
 
   const { token } = useAuth();
+  const { dateRange } = useDashboard();
 
   useEffect(() => {
     const fetchData = async () => {
       setAuthToken(token);
 
       try {
-        const response = await getMrrData();
+        const response = await getMrrData(dateRange);
 
         if(response.ok) {
-          const mrr_data = response.mrr_data;
-          mrr_data.sort((a: DailySum, b: DailySum) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime());
-
+          const mrr_array = response.mrr_array;
+          mrr_array.sort((a: DailySum, b: DailySum) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime());
+          
           setMrr30Days(response.mrr_last_30days);
           setMrrLastMonth(response.mrr_last_month);
 
@@ -44,7 +46,7 @@ export const AnnualRunRate = () => {
     }
 
     fetchData();
-  }, [token, mrr30Days, mrrLastMonth]);
+  }, [token, mrr30Days, mrrLastMonth, dateRange]);
 
   return (
     <div className="bg-white w-full rounded-xl p-5">

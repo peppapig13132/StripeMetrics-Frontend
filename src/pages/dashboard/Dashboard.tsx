@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {useState} from 'react'; 
 import Datepicker from 'react-tailwindcss-datepicker';
 import { MontlyRecurringRevenue } from '../../components/monthly-recurring-revenue/MontlyRecurringRevenue';
@@ -12,19 +12,29 @@ import { FreeTrials } from '../../components/free-trials/FreeTrials';
 import { AnnualRunRate } from '../../components/annual-run-rate/AnnualRunRate';
 import { useAuth } from '../../context/AuthContext';
 import { Link } from 'react-router-dom';
+import { defaultDateRange, useDashboard } from '../../context/DashboardContext';
+import { DateRange } from '../../interfaces/interface';
 
 export const Dashboard: React.FC = () => {
-  const [value, setValue] = useState({ 
-    startDate: null, 
-    endDate: null,
-  });
-    
+  const [value, setValue] = useState<DateRange>(defaultDateRange);
+  
   const handleValueChange = (newValue: any) => {
-    console.log("newValue:", newValue); 
-    setValue(newValue); 
+    setValue(newValue);
+    updateDateRange({
+      startDate: newValue.startDate,
+      endDate: newValue.endDate
+    });
   }
 
   const { appLogout } = useAuth();
+  const { dateRange, updateDateRange } = useDashboard();
+
+  useEffect(() => {
+    setValue({
+      startDate: dateRange.startDate,
+      endDate: dateRange.endDate,
+    });
+  }, [dateRange]);
 
   return(
     <div className="bg-slate-200 w-full">

@@ -9,6 +9,7 @@ import { Dashboard } from "./pages/dashboard/Dashboard";
 import { CustomPage } from "./components/custom-page/CustomPage";
 import { ProtectedComponent } from "./components/protected-component/ProtectedComponent";
 import { StripeOldData } from "./pages/stripe-old-data/StripeOldData";
+import { DashboardProvider } from "./context/DashboardContext";
 
 const App: React.FC = () => {  
   return (
@@ -20,7 +21,9 @@ const App: React.FC = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={
             <ProtectedComponent>
-              <Dashboard />
+              <DashboardProvider>
+                <Dashboard />
+              </DashboardProvider>
             </ProtectedComponent>}
           />
           <Route path="/stripe-old-data" element={
