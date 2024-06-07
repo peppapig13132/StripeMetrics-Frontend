@@ -108,9 +108,12 @@ export const getCustomerLifetimeValue = async () => {
   }
 }
 
-export const getCustomerChurnRate = async () => {
+export const getCustomerChurnRate = async (dateRange: DateRange) => {
   try {
-    const data = {};
+    const data = {
+      start_date: dateRange.startDate,
+      end_date: dateRange.endDate,
+    };
     const url = DASHBOARD_API_URL_PREFIX + '/customer-churn-rate';
     const options = {
       method: 'POST',
