@@ -24,9 +24,9 @@ export const MontlyRecurringRevenue = () => {
 
         if(response.ok) {
           const mrr_array = response.mrr_array;
-          mrr_array.sort((a: DailySum, b: DailySum) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime());
+          mrr_array.sort((a: DailySum, b: DailySum) => new Date(a.date).getTime() - new Date(b.date).getTime());
 
-          const x_data = mrr_array.map((item: DailySum) => new Date(item.createdAt));
+          const x_data = mrr_array.map((item: DailySum) => new Date(item.date));
           const y_data = mrr_array.map((item: DailySum) => item.sum);
 
           setXData(x_data);
