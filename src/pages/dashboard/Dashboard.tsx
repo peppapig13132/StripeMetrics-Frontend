@@ -21,8 +21,8 @@ export const Dashboard: React.FC = () => {
   const handleValueChange = (newValue: any) => {
     setValue(newValue);
     updateDateRange({
-      startDate: newValue.startDate,
-      endDate: newValue.endDate
+      startDate: newValue.startDate === null ? defaultDateRange.startDate : newValue.startDate,
+      endDate: newValue.endDate === null ? defaultDateRange.endDate : newValue.endDate
     });
   }
 
