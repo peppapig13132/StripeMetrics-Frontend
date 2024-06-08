@@ -3,34 +3,25 @@ import SubscriberCountChart from "./SubscriberCountChart";
 import { getSubscribers } from "../../services/dashboardApiService";
 import { setAuthToken } from "../../utils/setAuthToken";
 import { useAuth } from "../../context/AuthContext";
+import { useDashboard } from "../../context/DashboardContext";
 
 export const LastSubscribers = () => {
-  const [last30Days, setLast30Days] = useState(0);
-  const [lastMonth, setLastMonth] = useState(0);
-  const [rate, setRate] = useState(0);
+  const [subscriptions, setSubscriptions] = useState(0);
 
   const { token } = useAuth();
+  const { dateRange, days } = useDashboard();
 
   useEffect(() => {
     const fetchData = async () => {
       setAuthToken(token);
 
       try {
-        const response = await getSubscribers();
+        const response = await getSubscribers(dateRange);
 
         if(response.ok) {
-          setLast30Days(response.count_last_30days);
-          setLastMonth(response.count_last_month);
-
-          if(response.count_last_month !== 0) {
-            setRate(Math.round((response.count_last_30days - response.count_last_month) / response.count_last_month * 10000) / 100);
-          } else {
-            setRate(100);
-          }
+          setSubscriptions(response.count_subscriptions);
         } else {
-          setLast30Days(0);
-          setLastMonth(0);
-          setRate(0);
+          setSubscriptions(0);
         }
 
       } catch(error) {
@@ -39,19 +30,19 @@ export const LastSubscribers = () => {
     }
 
     fetchData();
-  }, [token]);
+  }, [token, dateRange]);
 
   return (
     <div className="bg-white w-full rounded-xl p-5">
       <div className="flex flex-row">
-        <h4 className="font-bold text-red-500 ms-auto">{rate}%</h4>
+        <h4 className="font-bold text-sky-600 ms-auto">Subscribers in</h4>
       </div>
 
       <div className="flex flex-row h-[30px] pt-3">
-        <span className="text-sky-600 ms-auto">Last 30 days</span>
+        <span className="text-sky-600 ms-auto">{days} days</span>
       </div>
 
-      <SubscriberCountChart last30Days={last30Days} lastMonth={lastMonth} />
+      <SubscriberCountChart subscriptions={subscriptions} />
     </div>
   );
 }

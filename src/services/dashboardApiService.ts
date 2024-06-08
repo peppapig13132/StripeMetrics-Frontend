@@ -26,9 +26,12 @@ export const getMrrData = async (dateRange: DateRange) => {
   }
 }
 
-export const getSubscribers = async () => {
+export const getSubscribers = async (dateRange: DateRange) => {
   try {
-    const data = {};
+    const data = {
+      start_date: dateRange.startDate,
+      end_date: dateRange.endDate,
+    };
     const url = DASHBOARD_API_URL_PREFIX + '/count-new-subscriptions';
     const options = {
       method: 'POST',

@@ -1,11 +1,13 @@
 import ReactECharts from 'echarts-for-react';
+import { useDashboard } from '../../context/DashboardContext';
 
 interface SubscriptionCountChartData {
-  last30Days: number;
-  lastMonth: number;
+  subscriptions: number;
 }
 
 const SubscriberCountChart = (data: SubscriptionCountChartData) => {
+  const { days } = useDashboard();
+
   const option = {
     tooltip: {
       trigger: 'item'
@@ -19,7 +21,7 @@ const SubscriberCountChart = (data: SubscriptionCountChartData) => {
         left: 'center',
         top: '40%',
         style: {
-          text: data.last30Days,
+          text: data.subscriptions,
           textAlign: 'center',
           fill: '#333',
           fontSize: '2rem',
@@ -59,15 +61,8 @@ const SubscriberCountChart = (data: SubscriptionCountChartData) => {
         },
         data: [
           {
-            name: 'Last Month',
-            value: data.lastMonth,
-            itemStyle: {
-              color: '#accfec'
-            }
-          },
-          {
-            name: 'Last 30 Days',
-            value: data.last30Days,
+            name: `${days} days`,
+            value: data.subscriptions,
             itemStyle: {
               color: '#2f88d0'
             }
