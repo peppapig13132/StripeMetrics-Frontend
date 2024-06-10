@@ -3,7 +3,7 @@ import { Navigate, Route, BrowserRouter as Router, Routes } from "react-router-d
 import "./App.css";
 import { AuthProvider } from "./context/AuthContext";
 import { Home } from "./pages/home/Home";
-import { Signup } from "./pages/signup/Signup";
+// import { Signup } from "./pages/signup/Signup";
 import { Login } from "./pages/login/Login";
 import { Dashboard } from "./pages/dashboard/Dashboard";
 import { CustomPage } from "./components/custom-page/CustomPage";
@@ -17,7 +17,7 @@ const App: React.FC = () => {
       <AuthProvider>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/signup" element={<Signup />} />
+          {/* <Route path="/signup" element={<Signup />} /> */}
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={
             <ProtectedComponent>

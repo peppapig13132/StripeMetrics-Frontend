@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
 import { useAuth } from '../../context/AuthContext';
 import { login } from '../../services/authService';
@@ -17,7 +17,7 @@ export const Login: React.FC = () => {
     if(response.ok) {
       toast.success('Welcome back!');
       appLogin(response.user, response.token);
-      setTimeout(()=>{navigate("/dashboard")}, 1500);
+      setTimeout(()=>{navigate("/dashboard")}, 1000);
     } else {
       toast.error('Invalid password!');
     }
@@ -25,7 +25,7 @@ export const Login: React.FC = () => {
 
   return(
     <>
-      <div className="flex flex-col items-center justify-center px-4 py-40">
+      <div className="flex flex-col items-center justify-center px-4 py-28">
         <h2 className="text-center text-gray-900 text-3xl md:text-4xl">Welcome back.</h2>
 
         <div className="py-8 w-[280px]">
@@ -36,7 +36,7 @@ export const Login: React.FC = () => {
           <button className="bg-teal-500 hover:bg-teal-700 px-5 py-2 text-sm leading-5 rounded-md font-semibold text-white w-full" onClick={handleLogin}>Log in</button>
 
           <p className="w-full mt-4 px-1 text-end">
-            <Link to="/signup">🔐 Sign up</Link>
+            {/* <Link to="/signup">🔐 Sign up</Link> */}
           </p>
         </div>
       </div>

@@ -14,9 +14,19 @@ import { useAuth } from '../../context/AuthContext';
 import { Link } from 'react-router-dom';
 import { defaultDateRange, useDashboard } from '../../context/DashboardContext';
 import { DateRange } from '../../interfaces/interface';
+import { ChangePassword } from '../../components/change-password/ChangePassword';
 
 export const Dashboard: React.FC = () => {
   const [value, setValue] = useState<DateRange>(defaultDateRange);
+  const [isOpened, setIsOpened] = useState<boolean>(false);
+
+  const handleOpenModal = () => {
+    setIsOpened(true);
+  }
+
+  const handleCloseModal = () => {
+    setIsOpened(false);
+  }
   
   const handleValueChange = (newValue: any) => {
     setValue(newValue);
@@ -93,6 +103,11 @@ export const Dashboard: React.FC = () => {
             <div className="w-full lg:w-1/3 px-1.5 py-3">
               <AnnualRunRate />
             </div>
+          </div>
+
+          <ChangePassword isOpen={isOpened} onClose={handleCloseModal} />
+          <div className="w-full flex justify-end mt-4 px-3">
+            <button onClick={handleOpenModal} >🔐 Change password</button>
           </div>
         </div>
       </div>
