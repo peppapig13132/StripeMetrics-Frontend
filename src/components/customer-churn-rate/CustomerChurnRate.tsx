@@ -31,7 +31,7 @@ export const CustomerChurnRate = () => {
       </div>
 
       <div className="flex flex-row mt-8">
-        <span className="font-bold text-sky-600">{churnRate}%</span>
+        <span className="font-bold text-sky-600">{churnRate}</span>
         <span className="text-sky-600 ms-auto">{days} days</span>
       </div>
     </div>
