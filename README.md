@@ -4,6 +4,10 @@
 ![npm](https://img.shields.io/badge/npm-10.6.0-blue)
 ![Tailwind CSS](https://img.shields.io/badge/tailwind_css-3.4.3-blue)
 
+<p align="center">
+  <img src="https://github.com/peppapig13132/StripeMetrics-Frontend/blob/main/public/assets/img/promo-1.png" alt="Promo-1">
+</p>
+
 ## Features
 
 - [x] MRR
