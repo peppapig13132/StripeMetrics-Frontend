@@ -35,12 +35,14 @@ export const StripeOldData: React.FC = () => {
   const [availableMonths, setAvailableMonths] = useState<string[]>(months);
   const [stripeOldDataStatus, setStripeOldDataStatus] = useState<StripeOldDataRow[] | []>([]);
   const [month, setMonth] = useState('--');
+  const [disabled, setDisabled] = useState<boolean>(false);
 
   const handleAvailableMonthChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setMonth(event.target.value);
   };
 
   const handleClick = async () => {
+    setDisabled(true);
     if(month === '--') {
       toast("Select a month!", {
         icon: '📅',
@@ -60,6 +62,7 @@ export const StripeOldData: React.FC = () => {
 
         const updatedMonths = availableMonths.filter(m => m !== month);
         setAvailableMonths(updatedMonths);
+        setDisabled(false);
       }
     } catch(error) {
       console.log('Error creating Stripe old data:', error);
@@ -77,7 +80,7 @@ export const StripeOldData: React.FC = () => {
           setStripeOldDataStatus(stripeOldData);
 
           const givenMonths = stripeOldData.map((row: StripeOldDataRow) => (
-            row.active_customer_counts && row.churn_rates && row.daily_active_subscription_counts && row.daily_sums ?
+            row.active_customer_counts && row.daily_active_subscription_counts && row.daily_sums ?
             row.date.slice(0, 7) :
             null
           ));
@@ -115,12 +118,11 @@ export const StripeOldData: React.FC = () => {
 
           <div className="dashboard__body">
             <div className="overflow-x-auto">
-              <table className="w-full table-auto border-collapse">
+              <table className="w-full table-auto border-collapse bg-slate-50">
                 <thead>
                   <tr>
                     <th className="border border-slate-300 px-2 py-1">Month</th>
                     <th className="border border-slate-300 px-2 py-1">Active Customers</th>
-                    <th className="border border-slate-300 px-2 py-1">Churn Rates</th>
                     <th className="border border-slate-300 px-2 py-1">Active Subscriptions</th>
                     <th className="border border-slate-300 px-2 py-1">MRR Movements</th>
                     <th className="border border-slate-300 px-2 py-1">Status</th>
@@ -140,16 +142,13 @@ export const StripeOldData: React.FC = () => {
                               {row.active_customer_counts ? <div className="flex justify-center"><Heroicon icon="check" /></div> : ''}
                             </td>
                             <td className="border border-slate-300 px-2 py-1 align-center">
-                              {row.churn_rates ? <div className="flex justify-center"><Heroicon icon="check" /></div> : ''}
-                            </td>
-                            <td className="border border-slate-300 px-2 py-1 align-center">
                               {row.daily_active_subscription_counts ? <div className="flex justify-center"><Heroicon icon="check" /></div> : ''}
                             </td>
                             <td className="border border-slate-300 px-2 py-1 align-center">
                               {row.daily_sums ? <div className="flex justify-center"><Heroicon icon="check" /></div> : ''}
                             </td>
                             <td className="border border-slate-300 px-2 py-1 align-center">
-                              {row.active_customer_counts && row.churn_rates && row.daily_active_subscription_counts && row.daily_sums ? <div className="flex justify-center"><Heroicon icon="check" /></div> : ''}
+                              {row.active_customer_counts && row.daily_active_subscription_counts && row.daily_sums ? <div className="flex justify-center"><Heroicon icon="check" /></div> : ''}
                             </td>
                           </tr>
                         );
@@ -171,7 +170,7 @@ export const StripeOldData: React.FC = () => {
                   );
                 })}
               </select>
-              <button onClick={handleClick} className="h-8 bg-slate-300 hover:bg-sky-600 ms-3 px-2 py-1 leading-5 rounded-md font-semibold text-sky-600 hover:text-white border border-slate-300 hover:border-slate-300">Get old data</button>
+              <button onClick={handleClick} className="h-8 bg-slate-300 hover:bg-sky-600 disabled:bg-slate-300 ms-3 px-2 py-1 leading-5 rounded-md font-semibold text-sky-600 hover:text-white disabled:text-sky-600 disabled:cursor-not-allowed border border-slate-300 hover:border-slate-300" disabled={disabled}>Get old data</button>
             </div>
           </div>
         </div>
