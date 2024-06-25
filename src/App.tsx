@@ -10,6 +10,7 @@ import { CustomPage } from "./components/custom-page/CustomPage";
 import { ProtectedComponent } from "./components/protected-component/ProtectedComponent";
 import { StripeOldData } from "./pages/stripe-old-data/StripeOldData";
 import { DashboardProvider } from "./context/DashboardContext";
+import { Signup } from './pages/signup/Signup';
 
 const App: React.FC = () => {  
   return (
@@ -17,7 +18,7 @@ const App: React.FC = () => {
       <AuthProvider>
         <Routes>
           <Route path="/" element={<Home />} />
-          {/* <Route path="/signup" element={<Signup />} /> */}
+          <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={
             <ProtectedComponent>
